@@ -63,19 +63,6 @@
     padding-top:20px;border-top:1px solid var(--rule)}
   .meta a{color:var(--ink-soft)}
 
-  .gate{background:var(--surface-2);border-bottom:1px solid var(--rule)}
-  .gate .wrap{padding-top:28px;padding-bottom:28px}
-  .gate h2{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
-    color:var(--ink-faint);margin:0 0 14px}
-  .tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
-  .tab{font-family:inherit;font-size:15px;font-weight:500;cursor:pointer;
-    background:var(--surface);color:var(--ink-soft);border:1px solid var(--rule);
-    border-radius:3px;padding:10px 18px;transition:background .15s,color .15s,border-color .15s}
-  .tab:hover{border-color:var(--ink-faint);color:var(--ink)}
-  .tab:focus-visible{outline:2px solid var(--heat);outline-offset:2px}
-  .tab[aria-selected="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
-  .pitch{margin:0;font-size:17px;line-height:1.55;max-width:62ch;color:var(--ink);
-    border-left:2px solid var(--heat);padding-left:18px}
 
   section{border-bottom:1px solid var(--rule)}
   section .wrap{padding-top:56px;padding-bottom:56px}
@@ -88,7 +75,6 @@
   .case{padding:40px 0;border-top:1px solid var(--rule)}
   .case:first-child{border-top:none;padding-top:0}
   .case-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;margin-bottom:20px}
-  .rank{font-size:12px;font-weight:600;color:var(--ink-faint);font-variant-numeric:tabular-nums;flex:none}
   .case h3{font-size:1.28rem;font-weight:600;letter-spacing:-.015em;margin:0;line-height:1.28;
     flex:1 1 auto;min-width:min(100%,26ch)}
   .case .sub{font-size:14.5px;color:var(--ink-soft);margin:-14px 0 20px;
@@ -168,7 +154,7 @@
       --shadow:none;
     }
     body{font-size:9.6pt;line-height:1.42;background:#fff;color:#000}
-    .draft,.gate,.todo,footer{display:none!important}
+    .draft,.todo,footer{display:none!important}
     header{border-bottom:1.2pt solid #000;background:#fff}
     header .wrap{padding:0 0 10pt}
     .wrap{padding:0;max-width:none}
@@ -218,18 +204,6 @@
   </div>
 </header>
 
-<div class="gate">
-  <div class="wrap">
-    <h2 class="disp">Entrada</h2>
-    <div class="tabs" role="tablist">
-      <button class="tab disp" role="tab" data-gate="industria" aria-selected="true">Industria</button>
-      <button class="tab disp" role="tab" data-gate="educacion" aria-selected="false">Educación</button>
-      <button class="tab disp" role="tab" data-gate="doctorado" aria-selected="false">Doctorado</button>
-    </div>
-    <p class="pitch" id="pitch">Fabricación y validación de piezas metálicas bajo norma, desde la evaluación de la tecnología hasta el ensayo que determina si la pieza cumple.</p>
-  </div>
-</div>
-
 <section>
   <div class="wrap col">
     <p class="label disp">Perfil</p>
@@ -243,14 +217,13 @@
 <section>
   <div class="wrap">
     <p class="label disp">Trabajos</p>
-    <h2 class="sec disp">Seis casos, con ficha técnica</h2>
-    <p class="lede">El orden responde a la entrada seleccionada arriba.</p>
+    <h2 class="sec disp">Siete trabajos</h2>
+    <p class="lede">Cada uno con su ficha técnica. La etiqueta indica el área, para orientar la lectura.</p>
 
     <div class="cases" id="cases">
 
-      <article class="case" data-ind="1" data-edu="6" data-doc="1">
+      <article class="case">
         <div class="case-head">
-          <span class="rank mono"></span>
           <h3 class="disp">Manufactura aditiva metálica por BMD</h3>
           <div class="tags disp"><span class="tag t-ind">Industria</span><span class="tag t-doc">Doctorado</span></div>
         <p class="sub">Viabilidad para producir repuestos funcionales en acero inoxidable 316L, en articulación con un centro de mantenimiento aeronáutico.</p>
@@ -272,10 +245,8 @@
           </div>
         </div>
       </article>
-
-      <article class="case" data-ind="7" data-edu="4" data-doc="2">
+      <article class="case">
         <div class="case-head">
-          <span class="rank mono"></span>
           <h3 class="disp">Producción académica</h3>
           <div class="tags disp"><span class="tag t-doc">Doctorado</span><span class="tag t-edu">Educación</span></div>
         <p class="sub">Tres ponencias aceptadas para presentación oral en WEEF &amp; GEDC 2026, y un artículo técnico en preparación.</p>
@@ -317,33 +288,29 @@
           </div>
         </div>
       </article>
-
-      <article class="case" data-ind="5" data-edu="1" data-doc="3">
+      <article class="case">
         <div class="case-head">
-          <span class="rank mono"></span>
-          <h3 class="disp">Resolviendo Retos STEAM</h3>
+          <h3 class="disp">STEAM con propósito</h3>
           <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-doc">Doctorado</span></div>
-        <p class="sub">Diseño curricular completo de una electiva universitaria de 16 semanas, construida desde cero.</p>
+        <p class="sub">Curso masivo publicado por la Universidad de los Andes en Coursera para docentes de educación básica y media.</p>
         </div>
         <div class="body">
           <div class="spec"><dl>
-            <dt class="disp">Periodo</dt><dd>2026</dd>
-            <dt class="disp">Rol</dt><dd>Diseño curricular completo</dd>
-            <dt class="disp">Formato</dt><dd>Electiva · 3 créditos · 16 semanas · presencial</dd>
-            <dt class="disp">Marco teórico</dt><dd>Kapur (fracaso productivo) · Dweck · Kolmos &amp; de Graaff · Vincenti</dd>
-            <dt class="disp">Entregables</dt><dd>12 documentos de diseño</dd>
-            <dt class="disp">Estado</dt><dd>Diseñado. No dictado aún.</dd>
+            <dt class="disp">Plataforma</dt><dd>Coursera · publicado y activo · acceso gratuito</dd>
+            <dt class="disp">Institución</dt><dd>Universidad de los Andes · Laboratorio CREA</dd>
+            <dt class="disp">Rol</dt><dd>Instructor · autoría y edición del contenido escrito</dd>
+            <dt class="disp">Estructura</dt><dd>6 módulos · 57 ítems entre guiones de video y lecturas</dd>
+            <dt class="disp">Idioma</dt><dd>Español · nivel principiante · ~10 horas</dd>
+            <dt class="disp">Enlace</dt><dd><a href="https://www.coursera.org/learn/steam-con-proposito-experiencias-que-transforman-el-aula">Ver el curso</a></dd>
           </dl></div>
           <div class="prose">
-            <p>Se rediseñó desde cero una electiva de la Facultad de Ingeniería, por solicitud institucional y sin reutilizar versiones anteriores. El curso está dirigido internamente a estudiantes en dificultad académica, condición que impone una restricción de diseño poco habitual: la presentación pública no puede aludir a esa población, dado que el encuadre remedial desincentiva la inscripción y el encuadre motivacional produce adhesión que no sobrevive a la primera evaluación. La solución adoptada consistió en separar el diseño interno de la presentación pública, redactada en tono institucional como electiva abierta.</p>
-            <p>El principio de diseño es que la confianza en la propia capacidad no se transfiere por vía discursiva sino por acumulación de evidencia, por lo que cada reto concluye en un resultado material verificable por el estudiante. La estructura se organiza en un ciclo repetible de siete fases con andamiaje docente decreciente a lo largo del semestre, tratamiento del error como insumo de aprendizaje y espacios de metacognición al cierre de cada reto. El respaldo bibliográfico se construyó como sistema de referencias con resumen individual por fuente revisada.</p>
+            <p>Se produjo el contenido escrito de un curso masivo en línea dirigido a docentes de educación básica y media, publicado por la Universidad de los Andes en Coursera con acceso gratuito. El curso transfiere la metodología desarrollada en el laboratorio CREA para el diseño de experiencias STEAM integradas al currículo, bajo una premisa explícita: la integración disciplinar alrededor de proyectos auténticos no requiere laboratorios especializados ni tecnología costosa. La secuencia avanza desde los fundamentos conceptuales hacia tres experiencias completas y reproducibles, que son el puente de papel, el ElastiCar y los sistemas hidráulicos. Culmina con el diseño de un taller propio por parte del participante.</p>
+            <p>La restricción de diseño dominante es la autoejecutabilidad: a diferencia de un taller presencial, donde el instructor interviene ante cualquier contingencia, el material debe prever el comportamiento del sistema cuando algo falla. En consecuencia, cada módulo incorpora guía de evaluación docente, secuencia minuto a minuto, lista de materiales, instrucciones de ensamble, pruebas sugeridas y estrategias de consolidación posteriores al reto, además de material específico sobre resolución de fallas entendida como habilidad enseñable y no como incidente. La producción editorial se gestionó mediante un flujo por estados con un tablero regenerado automáticamente a partir de los propios archivos, de modo que el estado reportado no puede divergir del contenido.</p>
           </div>
         </div>
       </article>
-
-      <article class="case" data-ind="3" data-edu="2" data-doc="5">
+      <article class="case">
         <div class="case-head">
-          <span class="rank mono"></span>
           <h3 class="disp">Impresión y modelado 3D</h3>
           <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-ind">Industria</span></div>
         <p class="sub">Curso de educación continua de 16 horas, dictado y reprogramado por la Universidad para una segunda edición.</p>
@@ -363,10 +330,29 @@
           </div>
         </div>
       </article>
-
-      <article class="case" data-ind="4" data-edu="5" data-doc="6">
+      <article class="case">
         <div class="case-head">
-          <span class="rank mono"></span>
+          <h3 class="disp">Resolviendo Retos STEAM</h3>
+          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-doc">Doctorado</span></div>
+        <p class="sub">Diseño curricular completo de una electiva universitaria de 16 semanas, construida desde cero.</p>
+        </div>
+        <div class="body">
+          <div class="spec"><dl>
+            <dt class="disp">Periodo</dt><dd>2026</dd>
+            <dt class="disp">Rol</dt><dd>Diseño curricular completo</dd>
+            <dt class="disp">Formato</dt><dd>Electiva · 3 créditos · 16 semanas · presencial</dd>
+            <dt class="disp">Marco teórico</dt><dd>Kapur (fracaso productivo) · Dweck · Kolmos &amp; de Graaff · Vincenti</dd>
+            <dt class="disp">Entregables</dt><dd>12 documentos de diseño</dd>
+            <dt class="disp">Estado</dt><dd>Diseñado. No dictado aún.</dd>
+          </dl></div>
+          <div class="prose">
+            <p>Se rediseñó desde cero una electiva de la Facultad de Ingeniería, por solicitud institucional y sin reutilizar versiones anteriores. El curso está dirigido internamente a estudiantes en dificultad académica, condición que impone una restricción de diseño poco habitual: la presentación pública no puede aludir a esa población, dado que el encuadre remedial desincentiva la inscripción y el encuadre motivacional produce adhesión que no sobrevive a la primera evaluación. La solución adoptada consistió en separar el diseño interno de la presentación pública, redactada en tono institucional como electiva abierta.</p>
+            <p>El principio de diseño es que la confianza en la propia capacidad no se transfiere por vía discursiva sino por acumulación de evidencia, por lo que cada reto concluye en un resultado material verificable por el estudiante. La estructura se organiza en un ciclo repetible de siete fases con andamiaje docente decreciente a lo largo del semestre, tratamiento del error como insumo de aprendizaje y espacios de metacognición al cierre de cada reto. El respaldo bibliográfico se construyó como sistema de referencias con resumen individual por fuente revisada.</p>
+          </div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-head">
           <h3 class="disp">Teleoperación gestual de un brazo robótico</h3>
           <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-ind">Industria</span></div>
         <p class="sub">Sistema de control por reconocimiento de gestos, construido en siete días para una actividad de acercamiento a la ingeniería.</p>
@@ -388,33 +374,8 @@
           </div>
         </div>
       </article>
-
-      <article class="case" data-ind="6" data-edu="3" data-doc="4">
+      <article class="case">
         <div class="case-head">
-          <span class="rank mono"></span>
-          <h3 class="disp">STEAM con propósito</h3>
-          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-doc">Doctorado</span></div>
-        <p class="sub">Curso masivo publicado por la Universidad de los Andes en Coursera para docentes de educación básica y media.</p>
-        </div>
-        <div class="body">
-          <div class="spec"><dl>
-            <dt class="disp">Plataforma</dt><dd>Coursera · publicado y activo · acceso gratuito</dd>
-            <dt class="disp">Institución</dt><dd>Universidad de los Andes · Laboratorio CREA</dd>
-            <dt class="disp">Rol</dt><dd>Instructor · autoría y edición del contenido escrito</dd>
-            <dt class="disp">Estructura</dt><dd>6 módulos · 57 ítems entre guiones de video y lecturas</dd>
-            <dt class="disp">Idioma</dt><dd>Español · nivel principiante · ~10 horas</dd>
-            <dt class="disp">Enlace</dt><dd><a href="https://www.coursera.org/learn/steam-con-proposito-experiencias-que-transforman-el-aula">Ver el curso</a></dd>
-          </dl></div>
-          <div class="prose">
-            <p>Se produjo el contenido escrito de un curso masivo en línea dirigido a docentes de educación básica y media, publicado por la Universidad de los Andes en Coursera con acceso gratuito. El curso transfiere la metodología desarrollada en el laboratorio CREA para el diseño de experiencias STEAM integradas al currículo, bajo una premisa explícita: la integración disciplinar alrededor de proyectos auténticos no requiere laboratorios especializados ni tecnología costosa. La secuencia avanza desde los fundamentos conceptuales hacia tres experiencias completas y reproducibles, que son el puente de papel, el ElastiCar y los sistemas hidráulicos. Culmina con el diseño de un taller propio por parte del participante.</p>
-            <p>La restricción de diseño dominante es la autoejecutabilidad: a diferencia de un taller presencial, donde el instructor interviene ante cualquier contingencia, el material debe prever el comportamiento del sistema cuando algo falla. En consecuencia, cada módulo incorpora guía de evaluación docente, secuencia minuto a minuto, lista de materiales, instrucciones de ensamble, pruebas sugeridas y estrategias de consolidación posteriores al reto, además de material específico sobre resolución de fallas entendida como habilidad enseñable y no como incidente. La producción editorial se gestionó mediante un flujo por estados con un tablero regenerado automáticamente a partir de los propios archivos, de modo que el estado reportado no puede divergir del contenido.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case" data-ind="2" data-edu="7" data-doc="7">
-        <div class="case-head">
-          <span class="rank mono"></span>
           <h3 class="disp">Gestión de activos productivos</h3>
           <div class="tags disp"><span class="tag t-ind">Industria</span></div>
         <p class="sub">Evaluación del estado técnico de más de 200 activos y su correspondencia con los planes de mantenimiento asignados.</p>
@@ -496,28 +457,3 @@
   </div>
 </footer>
 
-<script>
-  const pitches = {
-    industria:"Fabricación y validación de piezas metálicas bajo norma, desde la evaluación de la tecnología hasta el ensayo que determina si la pieza cumple.",
-    educacion:"Diseño de cursos y experiencias de aprendizaje en ingeniería, con fundamento en literatura de aprendizaje por proyectos y validación en aula.",
-    doctorado:"Investigación en manufactura aditiva metálica y en la formación del criterio de validación en ingeniería."
-  };
-  const keys = {industria:"ind", educacion:"edu", doctorado:"doc"};
-  const tabs = [...document.querySelectorAll(".tab")];
-  const cases = [...document.querySelectorAll(".case")];
-  const pitch = document.getElementById("pitch");
-
-  function apply(gate){
-    const k = keys[gate];
-    cases.forEach(c=>{
-      const n = c.dataset[k];
-      c.style.order = n;
-      c.querySelector(".rank").textContent = String(n).padStart(2,"0");
-    });
-    pitch.textContent = pitches[gate];
-    tabs.forEach(t=>t.setAttribute("aria-selected", String(t.dataset.gate===gate)));
-  }
-  tabs.forEach(t=>t.addEventListener("click",()=>apply(t.dataset.gate)));
-  document.getElementById("cases").style.display="flex";
-  apply("industria");
-</script>
