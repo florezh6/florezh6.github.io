@@ -74,17 +74,10 @@
   .cases{display:flex;flex-direction:column}
   .case{padding:40px 0;border-top:1px solid var(--rule)}
   .case:first-child{border-top:none;padding-top:0}
-  .case-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;margin-bottom:20px}
-  .case h3{font-size:1.28rem;font-weight:600;letter-spacing:-.015em;margin:0;line-height:1.28;
-    flex:1 1 auto;min-width:min(100%,26ch)}
-  .case .sub{font-size:14.5px;color:var(--ink-soft);margin:-14px 0 20px;
+  .case-head{margin-bottom:20px}
+  .case h3{font-size:1.28rem;font-weight:600;letter-spacing:-.015em;margin:0;line-height:1.28}
+  .case .sub{font-size:14.5px;color:var(--ink-soft);margin:6px 0 20px;
     max-width:62ch;line-height:1.45}
-  .tags{display:flex;gap:6px;flex-wrap:wrap}
-  .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
-    padding:3px 8px;border-radius:2px;white-space:nowrap}
-  .t-ind{background:var(--heat-soft);color:var(--heat)}
-  .t-edu{background:var(--teal-soft);color:var(--teal)}
-  .t-doc{background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--rule)}
 
   .body{display:grid;grid-template-columns:minmax(230px,300px) 1fr;gap:34px;align-items:start}
   .spec{border:1px solid var(--rule);background:var(--surface)}
@@ -175,8 +168,7 @@
     .spec dt{font-size:7pt;padding:5pt 7pt 0}
     .spec dd{font-size:8.6pt;padding:1pt 7pt 5pt}
     .prose p{font-size:9.6pt;margin-bottom:8pt}
-    .tag{border:0.6pt solid #666;background:#fff!important;color:#000!important}
-    .pend{display:none}
+      .pend{display:none}
     .grid{grid-template-columns:1fr 1fr;gap:9pt;break-inside:avoid}
     .card{border:0.6pt solid #999;box-shadow:none;padding:9pt 11pt}
     .card h3{font-size:9.6pt}
@@ -218,14 +210,13 @@
   <div class="wrap">
     <p class="label disp">Trabajos</p>
     <h2 class="sec disp">Siete trabajos</h2>
-    <p class="lede">Cada uno con su ficha técnica. La etiqueta indica el área, para orientar la lectura.</p>
+    <p class="lede">Cada uno con su ficha técnica, en orden de solidez de la evidencia disponible.</p>
 
     <div class="cases" id="cases">
 
       <article class="case">
         <div class="case-head">
           <h3 class="disp">Manufactura aditiva metálica por BMD</h3>
-          <div class="tags disp"><span class="tag t-ind">Industria</span><span class="tag t-doc">Doctorado</span></div>
         <p class="sub">Viabilidad para producir repuestos funcionales en acero inoxidable 316L, en articulación con un centro de mantenimiento aeronáutico.</p>
         </div>
         <div class="body">
@@ -248,7 +239,6 @@
       <article class="case">
         <div class="case-head">
           <h3 class="disp">Producción académica</h3>
-          <div class="tags disp"><span class="tag t-doc">Doctorado</span><span class="tag t-edu">Educación</span></div>
         <p class="sub">Tres ponencias aceptadas para presentación oral en WEEF &amp; GEDC 2026, y un artículo técnico en preparación.</p>
         </div>
         <div class="body">
@@ -291,7 +281,6 @@
       <article class="case">
         <div class="case-head">
           <h3 class="disp">STEAM con propósito</h3>
-          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-doc">Doctorado</span></div>
         <p class="sub">Curso masivo publicado por la Universidad de los Andes en Coursera para docentes de educación básica y media.</p>
         </div>
         <div class="body">
@@ -312,7 +301,6 @@
       <article class="case">
         <div class="case-head">
           <h3 class="disp">Impresión y modelado 3D</h3>
-          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-ind">Industria</span></div>
         <p class="sub">Curso de educación continua de 16 horas, dictado y reprogramado por la Universidad para una segunda edición.</p>
         </div>
         <div class="body">
@@ -333,7 +321,6 @@
       <article class="case">
         <div class="case-head">
           <h3 class="disp">Resolviendo Retos STEAM</h3>
-          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-doc">Doctorado</span></div>
         <p class="sub">Diseño curricular completo de una electiva universitaria de 16 semanas, construida desde cero.</p>
         </div>
         <div class="body">
@@ -354,7 +341,6 @@
       <article class="case">
         <div class="case-head">
           <h3 class="disp">Teleoperación gestual de un brazo robótico</h3>
-          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-ind">Industria</span></div>
         <p class="sub">Sistema de control por reconocimiento de gestos, construido en siete días para una actividad de acercamiento a la ingeniería.</p>
         </div>
         <div class="body">
@@ -377,7 +363,6 @@
       <article class="case">
         <div class="case-head">
           <h3 class="disp">Gestión de activos productivos</h3>
-          <div class="tags disp"><span class="tag t-ind">Industria</span></div>
         <p class="sub">Evaluación del estado técnico de más de 200 activos y su correspondencia con los planes de mantenimiento asignados.</p>
         </div>
         <div class="body">
