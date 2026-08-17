@@ -1,0 +1,514 @@
+<title>Hugo Flórez Rodríguez</title>
+<style>
+  :root{
+    --ground:#EDEFF1; --surface:#FFFFFF; --surface-2:#F6F7F8;
+    --ink:#15181B; --ink-soft:#586067; --ink-faint:#8A939A;
+    --rule:#D2D7DB; --rule-soft:#E3E7EA;
+    --heat:#A6521C; --heat-soft:#F2E3D6;
+    --teal:#1C6A71; --teal-soft:#DCEAEB;
+    --flag:#8A5A00; --flag-bg:#FBF0D8;
+    --shadow:0 1px 2px rgba(20,25,30,.06),0 8px 24px -12px rgba(20,25,30,.18);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#101315; --surface:#181C1F; --surface-2:#1E2327;
+      --ink:#E8EBED; --ink-soft:#9BA4AB; --ink-faint:#6E777E;
+      --rule:#2B3136; --rule-soft:#232930;
+      --heat:#E3894B; --heat-soft:#33241A;
+      --teal:#54B2B8; --teal-soft:#152A2C;
+      --flag:#D9AE5A; --flag-bg:#282112;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#101315; --surface:#181C1F; --surface-2:#1E2327;
+    --ink:#E8EBED; --ink-soft:#9BA4AB; --ink-faint:#6E777E;
+    --rule:#2B3136; --rule-soft:#232930;
+    --heat:#E3894B; --heat-soft:#33241A;
+    --teal:#54B2B8; --teal-soft:#152A2C;
+    --flag:#D9AE5A; --flag-bg:#282112;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:"Iowan Old Style","Charter","Palatino Linotype",Palatino,Georgia,serif;
+    font-size:17px; line-height:1.64; -webkit-font-smoothing:antialiased;
+  }
+  .disp{font-family:"Avenir Next","Futura","Trebuchet MS",Helvetica,Arial,sans-serif}
+  .mono{font-family:"SF Mono",Menlo,Consolas,"Roboto Mono",monospace}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 28px}
+  .col{max-width:66ch}
+  p{margin:0 0 18px}
+  a{color:var(--heat);text-underline-offset:3px}
+
+  .draft{background:var(--flag-bg);border-bottom:1px solid var(--rule)}
+  .draft .wrap{display:flex;gap:14px;align-items:flex-start;padding:14px 28px}
+  .draft p{margin:0;font-size:14.5px;color:var(--flag);line-height:1.5}
+  .draft-tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+    color:var(--flag);border:1px solid var(--flag);border-radius:2px;padding:3px 7px;
+    flex:none;margin-top:2px;white-space:nowrap}
+
+  header{border-bottom:1px solid var(--rule);
+    background:repeating-linear-gradient(to bottom,transparent 0 7px,var(--rule-soft) 7px 8px),var(--surface)}
+  header .wrap{padding-top:60px;padding-bottom:48px}
+  .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    color:var(--ink-faint);margin:0 0 20px}
+  h1{font-size:clamp(1.9rem,4.2vw,2.7rem);line-height:1.08;margin:0 0 20px;
+    font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+  .thesis{font-size:clamp(1.08rem,2.1vw,1.28rem);line-height:1.5;margin:0 0 30px;
+    color:var(--ink);max-width:52ch}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13.5px;color:var(--ink-soft);
+    padding-top:20px;border-top:1px solid var(--rule)}
+  .meta a{color:var(--ink-soft)}
+
+  .gate{background:var(--surface-2);border-bottom:1px solid var(--rule)}
+  .gate .wrap{padding-top:28px;padding-bottom:28px}
+  .gate h2{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    color:var(--ink-faint);margin:0 0 14px}
+  .tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+  .tab{font-family:inherit;font-size:15px;font-weight:500;cursor:pointer;
+    background:var(--surface);color:var(--ink-soft);border:1px solid var(--rule);
+    border-radius:3px;padding:10px 18px;transition:background .15s,color .15s,border-color .15s}
+  .tab:hover{border-color:var(--ink-faint);color:var(--ink)}
+  .tab:focus-visible{outline:2px solid var(--heat);outline-offset:2px}
+  .tab[aria-selected="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+  .pitch{margin:0;font-size:17px;line-height:1.55;max-width:62ch;color:var(--ink);
+    border-left:2px solid var(--heat);padding-left:18px}
+
+  section{border-bottom:1px solid var(--rule)}
+  section .wrap{padding-top:56px;padding-bottom:56px}
+  .label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    color:var(--ink-faint);margin:0 0 26px}
+  h2.sec{font-size:1.6rem;font-weight:600;letter-spacing:-.02em;margin:0 0 10px;line-height:1.24}
+  .lede{color:var(--ink-soft);margin:0 0 34px;max-width:60ch}
+
+  .cases{display:flex;flex-direction:column}
+  .case{padding:40px 0;border-top:1px solid var(--rule)}
+  .case:first-child{border-top:none;padding-top:0}
+  .case-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;margin-bottom:20px}
+  .rank{font-size:12px;font-weight:600;color:var(--ink-faint);font-variant-numeric:tabular-nums;flex:none}
+  .case h3{font-size:1.28rem;font-weight:600;letter-spacing:-.015em;margin:0;line-height:1.28;
+    flex:1 1 auto;min-width:min(100%,26ch)}
+  .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+    padding:3px 8px;border-radius:2px;white-space:nowrap}
+  .t-ind{background:var(--heat-soft);color:var(--heat)}
+  .t-edu{background:var(--teal-soft);color:var(--teal)}
+  .t-doc{background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--rule)}
+
+  .body{display:grid;grid-template-columns:minmax(230px,300px) 1fr;gap:34px;align-items:start}
+  .spec{border:1px solid var(--rule);background:var(--surface)}
+  .spec dl{margin:0;display:grid;grid-template-columns:auto}
+  .spec dt{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;
+    color:var(--ink-faint);padding:9px 14px 0;border-top:1px solid var(--rule-soft)}
+  .spec dt:first-of-type{border-top:none}
+  .spec dd{margin:0;font-size:14px;line-height:1.48;color:var(--ink);padding:2px 14px 9px}
+  .prose p{font-size:16.5px}
+  .prose p:last-child{margin-bottom:0}
+  .figures{margin-top:16px;font-size:14px;color:var(--ink-soft);border-top:1px solid var(--rule-soft);padding-top:14px}
+  .figures b{color:var(--heat);font-weight:600}
+  .pend{display:inline-block;margin-top:14px;font-size:13px;color:var(--flag);
+    background:var(--flag-bg);border:1px solid var(--flag);border-radius:2px;padding:5px 10px;line-height:1.45}
+
+  .papers{display:flex;flex-direction:column;gap:0;margin-bottom:26px}
+  .paper{display:grid;grid-template-columns:72px 1fr;gap:20px;padding:18px 0;
+    border-top:1px solid var(--rule-soft);align-items:start}
+  .paper:first-child{border-top:none}
+  .paper .pid{font-size:13px;color:var(--heat);font-weight:600;font-variant-numeric:tabular-nums;padding-top:2px}
+  .paper h4{font-size:1rem;font-weight:600;margin:0 0 5px;line-height:1.36}
+  .paper p{font-size:14.5px;color:var(--ink-soft);margin:0}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .card{background:var(--surface);border:1px solid var(--rule-soft);border-radius:3px;
+    padding:20px 22px;box-shadow:var(--shadow)}
+  .card h3{font-size:1rem;font-weight:600;margin:0 0 8px;line-height:1.32;letter-spacing:-.01em}
+  .card p{font-size:14.5px;line-height:1.55;margin:0;color:var(--ink-soft)}
+
+  .rows{display:flex;flex-direction:column}
+  .row{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:20px 0;
+    border-top:1px solid var(--rule-soft);align-items:start}
+  .row:first-child{border-top:none}
+  .row .when{font-size:13px;color:var(--ink-faint);font-variant-numeric:tabular-nums;padding-top:3px}
+  .row h3{font-size:1rem;font-weight:600;margin:0 0 4px;line-height:1.35}
+  .row p{font-size:14.5px;color:var(--ink-soft);margin:0}
+  .row .badge{font-size:12px;color:var(--heat);font-weight:600;
+    font-variant-numeric:tabular-nums;margin-left:8px}
+
+  .todo{background:var(--surface-2)}
+  .todo ol{margin:0;padding-left:1.3em;max-width:64ch}
+  .todo li{margin-bottom:14px;font-size:15.5px;line-height:1.55}
+  .sev{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+    color:var(--heat);margin-right:8px}
+
+  footer{background:var(--surface)}
+  footer .wrap{padding-top:32px;padding-bottom:42px;font-size:13.5px;color:var(--ink-faint)}
+
+  @media (max-width:780px){
+    .body{grid-template-columns:1fr;gap:22px}
+  }
+  @media (max-width:680px){
+    body{font-size:16px}
+    .wrap{padding:0 20px}
+    .row,.paper{grid-template-columns:1fr;gap:6px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ---------- impresión: Cmd+P → «Guardar como PDF» ---------- */
+  @media print{
+    @page{size:A4;margin:16mm 15mm 18mm}
+    :root{
+      --ground:#fff; --surface:#fff; --surface-2:#fff;
+      --ink:#000; --ink-soft:#333; --ink-faint:#666;
+      --rule:#999; --rule-soft:#c8c8c8;
+      --heat:#000; --heat-soft:#fff; --teal:#000; --teal-soft:#fff;
+      --shadow:none;
+    }
+    body{font-size:9.6pt;line-height:1.42;background:#fff;color:#000}
+    .draft,.gate,.todo,footer{display:none!important}
+    header{border-bottom:1.2pt solid #000;background:#fff}
+    header .wrap{padding:0 0 10pt}
+    .wrap{padding:0;max-width:none}
+    h1{font-size:20pt;margin-bottom:8pt}
+    .thesis{font-size:10.5pt;max-width:none;margin-bottom:10pt}
+    .eyebrow{margin-bottom:8pt}
+    .meta{font-size:8.4pt;padding-top:8pt;gap:4pt 14pt}
+    section{border-bottom:none}
+    section .wrap{padding:14pt 0 0}
+    h2.sec{font-size:13pt}
+    .label{margin-bottom:12pt}
+    /* cada caso arranca en página nueva y no se parte */
+    .case{break-inside:avoid;break-before:page;padding:0 0 12pt;border-top:none}
+    .case:first-child{break-before:auto}
+    .case h3{font-size:12.5pt}
+    .body{grid-template-columns:34% 1fr;gap:14pt}
+    .spec{border:0.6pt solid #666}
+    .spec dt{font-size:7pt;padding:5pt 7pt 0}
+    .spec dd{font-size:8.6pt;padding:1pt 7pt 5pt}
+    .prose p{font-size:9.6pt;margin-bottom:8pt}
+    .tag{border:0.6pt solid #666;background:#fff!important;color:#000!important}
+    .pend{display:none}
+    .grid{grid-template-columns:1fr 1fr;gap:9pt;break-inside:avoid}
+    .card{border:0.6pt solid #999;box-shadow:none;padding:9pt 11pt}
+    .card h3{font-size:9.6pt}
+    .card p{font-size:8.4pt}
+    .rows,.row,.paper{break-inside:avoid}
+    .row{grid-template-columns:96pt 1fr;padding:7pt 0}
+    /* los enlaces muestran su destino, que en papel no se puede clicar */
+    .prose a::after,.spec a::after{content:" (" attr(href) ")";font-size:7.6pt;color:#555;word-break:break-all}
+  }
+</style>
+
+
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow disp">Portafolio profesional</p>
+    <h1 class="disp">Hugo David<br>Flórez Rodríguez</h1>
+    <p class="thesis">Ingeniero mecánico con trabajo en manufactura aditiva metálica y en el diseño de experiencias formativas en ingeniería. Fabricación y validación de piezas bajo norma, y transferencia de ese conocimiento a cursos, talleres y material formativo.</p>
+    <div class="meta disp">
+      <span>Instructor · Departamento de Ingeniería Mecánica, Universidad de los Andes</span>
+      <span>MSc Ingeniería Mecánica</span>
+      <span>Bogotá, Colombia</span>
+      <span><a href="mailto:florezh6@gmail.com">florezh6@gmail.com</a></span>
+    </div>
+  </div>
+</header>
+
+<div class="gate">
+  <div class="wrap">
+    <h2 class="disp">Entrada</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab disp" role="tab" data-gate="industria" aria-selected="true">Industria</button>
+      <button class="tab disp" role="tab" data-gate="educacion" aria-selected="false">Educación</button>
+      <button class="tab disp" role="tab" data-gate="doctorado" aria-selected="false">Doctorado</button>
+    </div>
+    <p class="pitch" id="pitch">Fabricación y validación de piezas metálicas bajo norma, desde la evaluación de la tecnología hasta el ensayo que determina si la pieza cumple.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap col">
+    <p class="label disp">Perfil</p>
+    <p>Soy ingeniero mecánico de la Universidad de los Andes, con maestría en la misma institución, e instructor del Departamento de Ingeniería Mecánica desde julio de 2026. Mi trabajo se reparte entre la evaluación de tecnologías de fabricación y el diseño de la formación que permite usarlas.</p>
+    <p>En la línea técnica, mi trabajo de maestría evaluó la viabilidad de la manufactura aditiva por deposición de metal aglutinado para producir piezas metálicas funcionales en acero inoxidable 316L, en articulación con un centro de mantenimiento aeronáutico. Durante dos años y medio fui asistente de investigación de posgrado en la Universidad, coordinando un equipo de doce ingenieros y estudiantes, operando equipos de manufactura aditiva y ejecutando ensayos mecánicos bajo normas ASTM e ISO.</p>
+    <p>En la línea formativa, diseño cursos y experiencias de aprendizaje en ingeniería. Soy primer instructor de <a href="https://www.coursera.org/learn/steam-con-proposito-experiencias-que-transforman-el-aula">«STEAM con propósito»</a>, curso publicado por la Universidad de los Andes en Coursera para docentes de colegio; diseñé desde cero una electiva universitaria de 16 semanas; y dicté un curso de educación continua en impresión 3D, reprogramado por la Universidad para una segunda edición. Soy coautor de tres ponencias aceptadas en el World Engineering Education Forum 2026, y represento a la Universidad en ELA4ATTRACT, proyecto financiado por la Unión Europea para ampliar el acceso de jóvenes de América Latina y el Caribe a carreras STEM.</p>
+    <p>El criterio que atraviesa ambas líneas es la validación: una pieza se considera fabricada cuando pasa el ensayo, y una experiencia formativa se considera diseñada cuando es reproducible por otra persona.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label disp">Trabajos</p>
+    <h2 class="sec disp">Seis casos, con ficha técnica</h2>
+    <p class="lede">El orden responde a la entrada seleccionada arriba.</p>
+
+    <div class="cases" id="cases">
+
+      <article class="case" data-ind="1" data-edu="6" data-doc="1">
+        <div class="case-head">
+          <span class="rank mono"></span>
+          <h3 class="disp">Viabilidad de la manufactura aditiva por deposición de metal aglutinado (BMD) para la producción de piezas metálicas</h3>
+          <div class="tags disp"><span class="tag t-ind">Industria</span><span class="tag t-doc">Doctorado</span></div>
+        </div>
+        <div class="body">
+          <div class="spec"><dl>
+            <dt class="disp">Periodo</dt><dd>2025 – 2026</dd>
+            <dt class="disp">Rol</dt><dd>Investigador principal · trabajo de maestría</dd>
+            <dt class="disp">Contraparte</dt><dd>Un centro de mantenimiento aeronáutico</dd>
+            <dt class="disp">Material</dt><dd>Acero inoxidable 316L, 80–85 % en peso de polvo metálico en matriz de PLA</dd>
+            <dt class="disp">Métodos</dt><dd>Arreglo ortogonal de Taguchi L18 · ANOVA al 95 % · visión por computador (Python, OpenCV, scikit-image) · ASTM D792-20 · metalografía</dd>
+            <dt class="disp">Producto</dt><dd>Artículo en preparación, sin publicar</dd>
+          </dl></div>
+          <div class="prose">
+            <p>Se evaluó la viabilidad de la manufactura aditiva por deposición de metal aglutinado para la producción de piezas metálicas funcionales en acero inoxidable 316L. La selección del componente a fabricar se realizó mediante una matriz de evaluación de viabilidad sobre un conjunto de repuestos candidatos. El estudio se concentró en la etapa verde del proceso —la pieza recién impresa, antes del desaglomerado y la sinterización— por una razón metodológica: las optimizaciones publicadas evalúan típicamente propiedades del estado final, lo que obliga a completar el ciclo térmico completo para cada corrida experimental. Se propuso y validó en su lugar una métrica de la etapa verde como estimador anticipado de la calidad final.</p>
+            <p>Para ello se definió el Índice de Defecto Superficial, medido por visión por computador: las probetas se digitalizaron a 9600 dpi en recinto opaco controlado y se procesaron con guiones propios en Python mediante filtrado gaussiano, umbralización de Otsu y ecualización de histograma. Sobre un arreglo ortogonal L18 se estudiaron seis factores de impresión a tres niveles, con orden de fabricación aleatorizado y relación señal/ruido bajo criterio «menor es mejor».</p>
+            <p>El análisis de varianza identificó dos factores estadísticamente significativos: el factor de extrusión (p = 0,0199) y la velocidad de impresión (p = 0,0433); la altura de capa resultó marginalmente significativa (p = 0,0625). El factor de extrusión presentó una relación en U invertida con óptimo en 1,10, coherente con subextrusión por defecto y excedentes laterales por exceso. La densidad medida del insumo fue de 4,223 ± 0,082 g/cm³, un 19,0 % superior a la reportada por el fabricante. Una corrida no produjo probeta viable por subextrusión severa y se documentó como frontera del proceso, no como error experimental. Los niveles óptimos se verificaron con un lote de probetas de confirmación, y la caracterización metalográfica del material sinterizado se realizó a 1100, 1150 y 1250 °C.</p>
+            <p class="figures"><b>Figuras disponibles:</b> 90 metalografías, 244 gráficos de efectos principales y señal/ruido (en español e inglés), 563 imágenes de probeta.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case" data-ind="7" data-edu="4" data-doc="2">
+        <div class="case-head">
+          <span class="rank mono"></span>
+          <h3 class="disp">Producción académica: tres ponencias aceptadas en WEEF &amp; GEDC 2026</h3>
+          <div class="tags disp"><span class="tag t-doc">Doctorado</span><span class="tag t-edu">Educación</span></div>
+        </div>
+        <div class="body">
+          <div class="spec"><dl>
+            <dt class="disp">Congreso</dt><dd>World Engineering Education Forum &amp; Global Engineering Deans Council (IFEES &amp; GEDC)</dd>
+            <dt class="disp">Sede</dt><dd>Cartagena de Indias · 22–25 de septiembre de 2026</dd>
+            <dt class="disp">Estado</dt><dd>Las tres aceptadas · presentación oral · publicación en memorias</dd>
+            <dt class="disp">Filiación</dt><dd>Laboratorio CREA, Facultad de Ingeniería, Universidad de los Andes</dd>
+            <dt class="disp">ORCID</dt><dd class="mono">0009-0009-9674-6969</dd>
+          </dl></div>
+          <div class="prose">
+            <div class="papers">
+              <div class="paper">
+                <span class="pid mono">5601</span>
+                <div>
+                  <h4 class="disp">Modelo de transferencia pedagógica para experiencias STEAM <span class="mono">· tercer autor</span></h4>
+                  <p>Distingue el ciclo pedagógico de diseño —preguntar, imaginar, planificar, crear, mejorar— del ciclo operativo de la sesión, y sostiene que lo transferible al aula regular corresponde a la lógica pedagógica y no al equipamiento del laboratorio de fabricación digital. Incluye datos exploratorios de 27 docentes: los cambios actitudinales se adoptan con facilidad, mientras que el tiempo y la rigidez curricular persisten como barreras.</p>
+                </div>
+              </div>
+              <div class="paper">
+                <span class="pid mono">5583</span>
+                <div>
+                  <h4 class="disp">El equipo facilitador en un laboratorio STEAM universitario <span class="mono">· cuarto autor</span></h4>
+                  <p>Caracteriza el modelo de facilitación del laboratorio CREA como mentoría <i>near-peer</i>, examinando la cercanía generacional, la diversidad disciplinar del equipo y la generación orgánica de contenidos a partir de los proyectos de los propios facilitadores.</p>
+                </div>
+              </div>
+              <div class="paper">
+                <span class="pid mono">5095</span>
+                <div>
+                  <h4 class="disp">Una aplicación móvil para promover carreras STEM <b>· segundo autor</b></h4>
+                  <p>C. F. Rodríguez · <b>H. D. Flórez</b> · J. A. Hurtado (Javeriana). Aplicación para la atracción de estudiantes a carreras STEM con énfasis en la atracción de mujeres, desarrollada por los socios del proyecto ELA4ATTRACT del programa ERASMUS+. Reúne siete historias de aplicaciones modernas de la ingeniería diseñadas por profesores de las universidades participantes, con resultados preliminares de pruebas piloto en Colombia.</p>
+                </div>
+              </div>
+            </div>
+            <p>Se suma un artículo técnico en preparación derivado del trabajo de maestría, <i>Minimizing Green-Stage Defects in 316L Metal Fused Filament Fabrication (FFF): A Taguchi-Based Optimization of Process Parameters</i>, cuya gestión de publicación se encuentra en curso.</p>
+            <p>La vinculación al proyecto ELA4ATTRACT incluye la representación de la Universidad de los Andes en el <b>Project Committee Meeting celebrado en Lisboa en mayo de 2026</b>. El consorcio, financiado por la Unión Europea, reúne al Instituto Superior Técnico – ULisboa, KTH Royal Institute of Technology, Universitat Politècnica de Catalunya, ITBA, Universidad de Chile y la Pontificia Universidad Javeriana, entre otras instituciones europeas y latinoamericanas.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case" data-ind="5" data-edu="1" data-doc="3">
+        <div class="case-head">
+          <span class="rank mono"></span>
+          <h3 class="disp">Diseño curricular de la electiva «Resolviendo Retos STEAM»</h3>
+          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-doc">Doctorado</span></div>
+        </div>
+        <div class="body">
+          <div class="spec"><dl>
+            <dt class="disp">Periodo</dt><dd>2026</dd>
+            <dt class="disp">Rol</dt><dd>Diseño curricular completo</dd>
+            <dt class="disp">Formato</dt><dd>Electiva · 3 créditos · 16 semanas · presencial</dd>
+            <dt class="disp">Marco teórico</dt><dd>Kapur (fracaso productivo) · Dweck · Kolmos &amp; de Graaff · Vincenti</dd>
+            <dt class="disp">Entregables</dt><dd>12 documentos de diseño</dd>
+            <dt class="disp">Estado</dt><dd>Diseñado. No dictado aún.</dd>
+          </dl></div>
+          <div class="prose">
+            <p>Se rediseñó desde cero una electiva de la Facultad de Ingeniería, por solicitud institucional y sin reutilizar versiones anteriores. El curso está dirigido internamente a estudiantes en dificultad académica, condición que impone una restricción de diseño poco habitual: la presentación pública no puede aludir a esa población, dado que el encuadre remedial desincentiva la inscripción y el encuadre motivacional produce adhesión que no sobrevive a la primera evaluación. La solución adoptada consistió en separar el diseño interno de la presentación pública, redactada en tono institucional como electiva abierta.</p>
+            <p>El principio de diseño es que la confianza en la propia capacidad no se transfiere por vía discursiva sino por acumulación de evidencia, por lo que cada reto concluye en un resultado material verificable por el estudiante. La estructura se organiza en un ciclo repetible de siete fases con andamiaje docente decreciente a lo largo del semestre, tratamiento del error como insumo de aprendizaje y espacios de metacognición al cierre de cada reto. El respaldo bibliográfico se construyó como sistema de referencias con resumen individual por fuente revisada.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case" data-ind="3" data-edu="2" data-doc="5">
+        <div class="case-head">
+          <span class="rank mono"></span>
+          <h3 class="disp">Curso de educación continua «Impresión y modelado 3D: de juguete a herramienta»</h3>
+          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-ind">Industria</span></div>
+        </div>
+        <div class="body">
+          <div class="spec"><dl>
+            <dt class="disp">Institución</dt><dd>Universidad de los Andes · Educación Continua</dd>
+            <dt class="disp">Rol</dt><dd>Diseño y dictado</dd>
+            <dt class="disp">Formato</dt><dd>16 horas · 4 sesiones · presencial</dd>
+            <dt class="disp">Software</dt><dd>Onshape · slicers de consumo y profesionales</dd>
+            <dt class="disp">Estado</dt><dd>Primera edición dictada. Segunda edición programada para octubre–noviembre de 2026.</dd>
+          </dl></div>
+          <div class="prose">
+            <p>Se diseñó y dictó un curso de educación continua sobre impresión y modelado 3D, estructurado en cuatro bloques con planeación de tiempos por actividad. La secuencia parte de la caracterización formal de la tecnología —subsistemas, arquitecturas de máquina, desarrollo histórico— y avanza hacia propiedades de materiales, flujo de trabajo digital y modelado paramétrico basado en sólidos.</p>
+            <p>El componente distintivo es el bloque de diseño orientado a las características del proceso, que traslada el foco desde la operación del equipo hacia el criterio de diseño: tolerancias, diferencia entre resolución en el plano y resolución en el eje vertical, relación entre altura de capa y ancho de línea, reducción de voladizos, ángulos de desmoldeo, anticoncentradores de esfuerzo, vaciado, soportes integrados, microdiseño de encajes y piezas ensambladas en sitio. La articulación con el trabajo de maestría es directa: los parámetros que el curso enseña a ajustar son los mismos que se sometieron a diseño de experimentos.</p>
+            <p>El curso fue reprogramado por la Universidad para una segunda edición, actualmente en oferta pública, lo cual constituye la evidencia de desempeño disponible en ausencia de instrumentos formales de evaluación.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case" data-ind="4" data-edu="5" data-doc="6">
+        <div class="case-head">
+          <span class="rank mono"></span>
+          <h3 class="disp">Sistema de teleoperación de un brazo robótico mediante reconocimiento de gestos</h3>
+          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-ind">Industria</span></div>
+        </div>
+        <div class="body">
+          <div class="spec"><dl>
+            <dt class="disp">Periodo</dt><dd>Agosto de 2026 · siete días entre especificación y ejecución</dd>
+            <dt class="disp">Rol</dt><dd>Diseño, construcción, programación y ejecución</dd>
+            <dt class="disp">Destinatarios</dt><dd>20 estudiantes de grado 11 · sesión única de una hora</dd>
+            <dt class="disp">Hardware</dt><dd>Brazo impreso en 3D · Arduino Uno · servos con alimentación externa</dd>
+            <dt class="disp">Software</dt><dd>Python · MediaPipe · comunicación serial · C++ embebido</dd>
+            <dt class="disp">Estado</dt><dd>Ejecutado. En fase de refinamiento.</dd>
+          </dl></div>
+          <div class="prose">
+            <p>Se desarrolló un sistema de teleoperación gestual para una actividad de acercamiento a la ingeniería dirigida a estudiantes de educación media. El objetivo formativo no correspondía a la enseñanza de robótica, por lo que el robot se definió como entorno de validación y no como contenido: la tarea de los participantes consistió en diseñar el mapa de control, esto es, determinar qué gesto de la mano corresponde a qué orden del brazo.</p>
+            <p>La detección se resolvió mediante un modelo preentrenado de seguimiento de manos, reduciendo el problema al conteo de dedos extendidos, lo que produce seis estados discretos y una única regla de decisión que depurar. La tabla de correspondencia entre gesto y orden se mantuvo separada del código de detección desde la primera versión, decisión de arquitectura que permitió habilitar la reconfiguración del mapa en tiempo de ejecución. El sistema incorpora degradación controlada: un temporizador de seguridad detiene el brazo ante ausencia de señal durante 400 ms, y el programa opera en modo de solo detección cuando no hay controladora conectada.</p>
+            <p>La detección alcanzó 98,8 % de acierto sobre los seis gestos. El hallazgo de mayor valor metodológico no fue de implementación: un gesto presentaba 25,9 % de acierto y ningún ajuste de parámetros lo corrigió, mientras que la incorporación de una instrucción verbal explícita a los participantes lo elevó a 99,3 %. Adicionalmente, la primera métrica definida evaluaba una variable intermedia del algoritmo y no la experiencia de punta a punta, lo que estuvo cerca de motivar un rediseño innecesario; el protocolo de medición se corrigió para evaluar el sistema completo.</p>
+
+          </div>
+        </div>
+      </article>
+
+      <article class="case" data-ind="6" data-edu="3" data-doc="4">
+        <div class="case-head">
+          <span class="rank mono"></span>
+          <h3 class="disp">«STEAM con propósito: experiencias que transforman el aula» · curso publicado en Coursera</h3>
+          <div class="tags disp"><span class="tag t-edu">Educación</span><span class="tag t-doc">Doctorado</span></div>
+        </div>
+        <div class="body">
+          <div class="spec"><dl>
+            <dt class="disp">Plataforma</dt><dd>Coursera · publicado y activo · acceso gratuito</dd>
+            <dt class="disp">Institución</dt><dd>Universidad de los Andes · Laboratorio CREA</dd>
+            <dt class="disp">Rol</dt><dd>Primer instructor acreditado, de siete · autoría y edición del contenido escrito</dd>
+            <dt class="disp">Estructura</dt><dd>6 módulos · 57 ítems entre guiones de video y lecturas</dd>
+            <dt class="disp">Idioma</dt><dd>Español · nivel principiante · ~10 horas</dd>
+            <dt class="disp">Enlace</dt><dd><a href="https://www.coursera.org/learn/steam-con-proposito-experiencias-que-transforman-el-aula">Ver el curso</a></dd>
+          </dl></div>
+          <div class="prose">
+            <p>Se produjo el contenido escrito de un curso masivo en línea dirigido a docentes de educación básica y media, publicado por la Universidad de los Andes en Coursera con acceso gratuito. El curso transfiere la metodología desarrollada en el laboratorio CREA para el diseño de experiencias STEAM integradas al currículo, bajo una premisa explícita: la integración disciplinar alrededor de proyectos auténticos no requiere laboratorios especializados ni tecnología costosa. La secuencia avanza desde los fundamentos conceptuales hacia tres experiencias completas y reproducibles —puente de papel, ElastiCar y sistemas hidráulicos— y culmina con el diseño de un taller propio por parte del participante.</p>
+            <p>La restricción de diseño dominante es la autoejecutabilidad: a diferencia de un taller presencial, donde el instructor interviene ante cualquier contingencia, el material debe prever el comportamiento del sistema cuando algo falla. En consecuencia, cada módulo incorpora guía de evaluación docente, secuencia minuto a minuto, lista de materiales, instrucciones de ensamble, pruebas sugeridas y estrategias de consolidación posteriores al reto, además de material específico sobre resolución de fallas entendida como habilidad enseñable y no como incidente. La producción editorial se gestionó mediante un flujo por estados con un tablero regenerado automáticamente a partir de los propios archivos, de modo que el estado reportado no puede divergir del contenido.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case" data-ind="2" data-edu="7" data-doc="7">
+        <div class="case-head">
+          <span class="rank mono"></span>
+          <h3 class="disp">Evaluación técnica y actualización de registros de activos productivos</h3>
+          <div class="tags disp"><span class="tag t-ind">Industria</span></div>
+        </div>
+        <div class="body">
+          <div class="spec"><dl>
+            <dt class="disp">Periodo</dt><dd>Enero – junio de 2023</dd>
+            <dt class="disp">Rol</dt><dd>Practicante · Alianzas y Gestión de Activos</dd>
+            <dt class="disp">Organización</dt><dd>Banco Davivienda</dd>
+            <dt class="disp">Alcance</dt><dd>Más de 200 activos productivos</dd>
+            <dt class="disp">Productos</dt><dd>Informes de desempeño y proyección · actualización de registros · mejora de procedimiento</dd>
+          </dl></div>
+          <div class="prose">
+            <p>Se evaluó el estado técnico de más de doscientos activos productivos y su correspondencia con los planes de mantenimiento asignados. El problema de partida corresponde a la divergencia acumulada entre el registro documental y el equipo físico: los sistemas de información sobre activos se actualizan por intervención manual, de modo que su desviación respecto de la realidad crece con el tiempo y compromete las decisiones que se toman sobre ellos.</p>
+            <p>El levantamiento se realizó por contraste directo entre el registro interno y el equipo físico, activo por activo, dado que una auditoría documental interna no puede detectar discrepancias con la realidad material. La evaluación no se formuló en términos absolutos de estado sino de correspondencia entre el estado observado y el plan de mantenimiento asignado, que es la variable sobre la que efectivamente se decide. Se participó adicionalmente en la mejora de los procedimientos de control y seguimiento, bajo el criterio de que corregir el registro sin intervenir el proceso que lo degrada reproduce el problema en el mediano plazo.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label disp">Otros trabajos</p>
+    <div class="grid">
+      <div class="card"><h3 class="disp">Sistema de sellado metal-metal</h3><p>Proyecto de una asignatura de la maestría. Diseño de sellado para petróleo y gas: la configuración metal contra metal se emplea cuando la temperatura o el fluido de proceso descartan elastómeros, lo que traslada el desempeño a la tolerancia dimensional y el acabado superficial.</p></div>
+      <div class="card"><h3 class="disp">Diseño Gráfico en Ingeniería (IMEC 1505)</h3><p>Docencia en representación gráfica: proyecciones, secciones, dimensionamiento, tolerancias, modelado paramétrico y ensambles. Once sesiones y cerca de veinte talleres de material propio.</p></div>
+      <div class="card"><h3 class="disp">Coordinación de equipo técnico</h3><p>Coordinación de un equipo multidisciplinario de doce ingenieros y estudiantes, con operación de equipos de fabricación por filamento fundido y supervisión de ensayos mecánicos bajo normas ASTM e ISO.</p></div>
+      <div class="card"><h3 class="disp">Firmware personalizado Ender 3 S1</h3><p>Configuración de firmware con control térmico por modelo predictivo en sustitución de PID, compensación de avance lineal y nivelación activa. La interfaz se mantuvo en inglés por una restricción del controlador de pantalla.</p></div>
+      <div class="card"><h3 class="disp">Asignación máquina–pieza</h3><p>Herramientas computacionales para el análisis de información productiva y la optimización de la asignación de piezas a máquinas, dentro de la familia de problemas de formación de celdas de manufactura.</p></div>
+      <div class="card"><h3 class="disp">Talleres CREA y ELA4ATTRACT</h3><p>Diseño y ejecución de experiencias de acercamiento a la ingeniería para educación media, dentro de un catálogo de diecisiete talleres, e implementación de STEM Living Labs en el marco del proyecto ELA4ATTRACT.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label disp">Formación y reconocimientos</p>
+    <div class="rows">
+      <div class="row">
+        <span class="when mono">2024 — 2026</span>
+        <div><h3 class="disp">MSc en Ingeniería Mecánica <span class="badge mono">PGA 4.72 / 5.00</span></h3><p>Universidad de los Andes. Trabajo de grado en manufactura aditiva metálica por deposición de metal aglutinado.</p></div>
+      </div>
+      <div class="row">
+        <span class="when mono">2019 — 2024</span>
+        <div><h3 class="disp">BSc en Ingeniería Mecánica</h3><p>Universidad de los Andes. Programa acreditado ABET.</p></div>
+      </div>
+      <div class="row">
+        <span class="when mono">2023</span>
+        <div><h3 class="disp">Reconocimiento a los Mejores Saber Pro y TyT</h3><p>Distinción nacional del Ministerio de Educación Nacional a los mejores resultados en las pruebas de Estado de educación superior.</p></div>
+      </div>
+      <div class="row">
+        <span class="when mono">2024</span>
+        <div><h3 class="disp">Asistente Graduado</h3><p>Beca de posgrado por mérito académico: matrícula completa y estipendio.</p></div>
+      </div>
+      <div class="row">
+        <span class="when mono">2019</span>
+        <div><h3 class="disp">Generación E, componente Excelencia</h3><p>Beca completa de pregrado por mérito, Ministerio de Educación Nacional.</p></div>
+      </div>
+      <div class="row">
+        <span class="when mono">2024</span>
+        <div><h3 class="disp">Formación pedagógica</h3><p>Universidad de los Andes. Talleres en trabajo colaborativo, ética, manejo de aula, evaluación formativa y atención de crisis emocionales.</p></div>
+      </div>
+      <div class="row">
+        <span class="when mono">Herramientas</span>
+        <div><h3 class="disp">Métodos y herramientas</h3><p>Diseño de experimentos (Taguchi, ANOVA) · Python, MATLAB, SQL · visión por computador (OpenCV, scikit-image, MediaPipe) · Inventor, Fusion 360, Onshape, Ansys Workbench · Arduino y C++ embebido · ensayos ASTM e ISO · español nativo, inglés B2, alemán A1.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="wrap">
+    Hugo David Flórez Rodríguez · Bogotá, Colombia · <a href="mailto:hd.florez@uniandes.edu.co">hd.florez@uniandes.edu.co</a> · <a href="cv.html">Hoja de vida</a> · Actualizado en agosto de 2026
+  </div>
+</footer>
+
+<script>
+  const pitches = {
+    industria:"Fabricación y validación de piezas metálicas bajo norma, desde la evaluación de la tecnología hasta el ensayo que determina si la pieza cumple.",
+    educacion:"Diseño de cursos y experiencias de aprendizaje en ingeniería, con fundamento en literatura de aprendizaje por proyectos y validación en aula.",
+    doctorado:"Investigación en manufactura aditiva metálica y en la formación del criterio de validación en ingeniería."
+  };
+  const keys = {industria:"ind", educacion:"edu", doctorado:"doc"};
+  const tabs = [...document.querySelectorAll(".tab")];
+  const cases = [...document.querySelectorAll(".case")];
+  const pitch = document.getElementById("pitch");
+
+  function apply(gate){
+    const k = keys[gate];
+    cases.forEach(c=>{
+      const n = c.dataset[k];
+      c.style.order = n;
+      c.querySelector(".rank").textContent = String(n).padStart(2,"0");
+    });
+    pitch.textContent = pitches[gate];
+    tabs.forEach(t=>t.setAttribute("aria-selected", String(t.dataset.gate===gate)));
+  }
+  tabs.forEach(t=>t.addEventListener("click",()=>apply(t.dataset.gate)));
+  document.getElementById("cases").style.display="flex";
+  apply("industria");
+</script>
