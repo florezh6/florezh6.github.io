@@ -265,7 +265,7 @@
             <dt class="disp">Producto</dt><dd>Artículo en preparación, sin publicar</dd>
           </dl></div>
           <div class="prose">
-            <p>Se evaluó la viabilidad de la manufactura aditiva por deposición de metal aglutinado para la producción de piezas metálicas funcionales en acero inoxidable 316L. La selección del componente a fabricar se realizó mediante una matriz de evaluación de viabilidad sobre un conjunto de repuestos candidatos. El estudio se concentró en la etapa verde del proceso —la pieza recién impresa, antes del desaglomerado y la sinterización— por una razón metodológica: las optimizaciones publicadas evalúan típicamente propiedades del estado final, lo que obliga a completar el ciclo térmico completo para cada corrida experimental. Se propuso y validó en su lugar una métrica de la etapa verde como estimador anticipado de la calidad final.</p>
+            <p>Se evaluó la viabilidad de la manufactura aditiva por deposición de metal aglutinado para la producción de piezas metálicas funcionales en acero inoxidable 316L. La selección del componente a fabricar se realizó mediante una matriz de evaluación de viabilidad sobre un conjunto de repuestos candidatos. El estudio se concentró en la etapa verde del proceso, es decir la pieza recién impresa antes del desaglomerado y la sinterización. La razón es metodológica. Las optimizaciones publicadas evalúan propiedades del estado final y obligan a completar el ciclo térmico en cada corrida experimental, que es largo y costoso. Se propuso y validó en su lugar una métrica de la etapa verde como estimador anticipado de la calidad final.</p>
             <p>Para ello se definió el Índice de Defecto Superficial, medido por visión por computador: las probetas se digitalizaron a 9600 dpi en recinto opaco controlado y se procesaron con guiones propios en Python mediante filtrado gaussiano, umbralización de Otsu y ecualización de histograma. Sobre un arreglo ortogonal L18 se estudiaron seis factores de impresión a tres niveles, con orden de fabricación aleatorizado y relación señal/ruido bajo criterio «menor es mejor».</p>
             <p>El análisis de varianza identificó dos factores estadísticamente significativos: el factor de extrusión (p = 0,0199) y la velocidad de impresión (p = 0,0433); la altura de capa resultó marginalmente significativa (p = 0,0625). El factor de extrusión presentó una relación en U invertida con óptimo en 1,10, coherente con subextrusión por defecto y excedentes laterales por exceso. La densidad medida del insumo fue de 4,223 ± 0,082 g/cm³, un 19,0 % superior a la reportada por el fabricante. Una corrida no produjo probeta viable por subextrusión severa y se documentó como frontera del proceso, no como error experimental. Los niveles óptimos se verificaron con un lote de probetas de confirmación, y la caracterización metalográfica del material sinterizado se realizó a 1100, 1150 y 1250 °C.</p>
             <p class="figures"><b>Figuras disponibles:</b> 90 metalografías, 244 gráficos de efectos principales y señal/ruido (en español e inglés), 563 imágenes de probeta.</p>
@@ -294,7 +294,7 @@
                 <span class="pid mono">5601</span>
                 <div>
                   <h4 class="disp">Modelo de transferencia pedagógica para experiencias STEAM</h4>
-                  <p>Distingue el ciclo pedagógico de diseño —preguntar, imaginar, planificar, crear, mejorar— del ciclo operativo de la sesión, y sostiene que lo transferible al aula regular corresponde a la lógica pedagógica y no al equipamiento del laboratorio de fabricación digital. Incluye datos exploratorios de 27 docentes: los cambios actitudinales se adoptan con facilidad, mientras que el tiempo y la rigidez curricular persisten como barreras.</p>
+                  <p>Distingue el ciclo pedagógico de diseño, compuesto por preguntar, imaginar, planificar, crear y mejorar, del ciclo operativo de la sesión. Sostiene que lo transferible al aula regular corresponde a la lógica pedagógica y no al equipamiento del laboratorio de fabricación digital. Incluye datos exploratorios de 27 docentes: los cambios actitudinales se adoptan con facilidad, mientras que el tiempo y la rigidez curricular persisten como barreras.</p>
                 </div>
               </div>
               <div class="paper">
@@ -357,7 +357,7 @@
             <dt class="disp">Estado</dt><dd>Primera edición dictada. Segunda edición programada para octubre–noviembre de 2026.</dd>
           </dl></div>
           <div class="prose">
-            <p>Se diseñó y dictó un curso de educación continua sobre impresión y modelado 3D, estructurado en cuatro bloques con planeación de tiempos por actividad. La secuencia parte de la caracterización formal de la tecnología —subsistemas, arquitecturas de máquina, desarrollo histórico— y avanza hacia propiedades de materiales, flujo de trabajo digital y modelado paramétrico basado en sólidos.</p>
+            <p>Se diseñó y dictó un curso de educación continua sobre impresión y modelado 3D, estructurado en cuatro bloques con planeación de tiempos por actividad. La secuencia parte de la caracterización formal de la tecnología, con sus subsistemas, arquitecturas de máquina y desarrollo histórico. De ahí avanza hacia propiedades de materiales, flujo de trabajo digital y modelado paramétrico basado en sólidos.</p>
             <p>El componente distintivo es el bloque de diseño orientado a las características del proceso, que traslada el foco desde la operación del equipo hacia el criterio de diseño: tolerancias, diferencia entre resolución en el plano y resolución en el eje vertical, relación entre altura de capa y ancho de línea, reducción de voladizos, ángulos de desmoldeo, anticoncentradores de esfuerzo, vaciado, soportes integrados, microdiseño de encajes y piezas ensambladas en sitio. La articulación con el trabajo de maestría es directa: los parámetros que el curso enseña a ajustar son los mismos que se sometieron a diseño de experimentos.</p>
             <p>El curso fue reprogramado por la Universidad para una segunda edición, actualmente en oferta pública, lo cual constituye la evidencia de desempeño disponible en ausencia de instrumentos formales de evaluación.</p>
           </div>
@@ -383,7 +383,7 @@
           <div class="prose">
             <p>Se desarrolló un sistema de teleoperación gestual para una actividad de acercamiento a la ingeniería dirigida a estudiantes de educación media. El objetivo formativo no correspondía a la enseñanza de robótica, por lo que el robot se definió como entorno de validación y no como contenido: la tarea de los participantes consistió en diseñar el mapa de control, esto es, determinar qué gesto de la mano corresponde a qué orden del brazo.</p>
             <p>La detección se resolvió mediante un modelo preentrenado de seguimiento de manos, enfocado en la detección de la cantidad de dedos extendidos. Esto permitió definir seis estados distintos con una sola mano. La tabla de correspondencia entre gesto y orden se mantuvo separada del código de detección desde la primera versión, lo que permitió reconfigurar el mapa en tiempo de ejecución. El sistema incorpora degradación controlada: un temporizador de seguridad detiene el brazo ante ausencia de señal durante 400 ms, y el programa opera en modo de solo detección cuando no hay controladora conectada.</p>
-            <p>La detección alcanzó 98,8 % de acierto sobre los seis gestos. Un gesto presentaba 25,9 % de acierto y ningún ajuste de parámetros lo corrigió. Se incorporó al protocolo una instrucción verbal a los participantes —abrir la mano y separar el pulgar— y el acierto de ese gesto subió a 99,3 %.</p>
+            <p>La detección alcanzó 98,8 % de acierto sobre los seis gestos. Un gesto presentaba 25,9 % de acierto y ningún ajuste de parámetros lo corrigió. Se incorporó al protocolo una instrucción verbal a los participantes, consistente en abrir la mano y separar el pulgar. El acierto de ese gesto subió a 99,3 %.</p>
 
           </div>
         </div>
@@ -406,7 +406,7 @@
             <dt class="disp">Enlace</dt><dd><a href="https://www.coursera.org/learn/steam-con-proposito-experiencias-que-transforman-el-aula">Ver el curso</a></dd>
           </dl></div>
           <div class="prose">
-            <p>Se produjo el contenido escrito de un curso masivo en línea dirigido a docentes de educación básica y media, publicado por la Universidad de los Andes en Coursera con acceso gratuito. El curso transfiere la metodología desarrollada en el laboratorio CREA para el diseño de experiencias STEAM integradas al currículo, bajo una premisa explícita: la integración disciplinar alrededor de proyectos auténticos no requiere laboratorios especializados ni tecnología costosa. La secuencia avanza desde los fundamentos conceptuales hacia tres experiencias completas y reproducibles —puente de papel, ElastiCar y sistemas hidráulicos— y culmina con el diseño de un taller propio por parte del participante.</p>
+            <p>Se produjo el contenido escrito de un curso masivo en línea dirigido a docentes de educación básica y media, publicado por la Universidad de los Andes en Coursera con acceso gratuito. El curso transfiere la metodología desarrollada en el laboratorio CREA para el diseño de experiencias STEAM integradas al currículo, bajo una premisa explícita: la integración disciplinar alrededor de proyectos auténticos no requiere laboratorios especializados ni tecnología costosa. La secuencia avanza desde los fundamentos conceptuales hacia tres experiencias completas y reproducibles, que son el puente de papel, el ElastiCar y los sistemas hidráulicos. Culmina con el diseño de un taller propio por parte del participante.</p>
             <p>La restricción de diseño dominante es la autoejecutabilidad: a diferencia de un taller presencial, donde el instructor interviene ante cualquier contingencia, el material debe prever el comportamiento del sistema cuando algo falla. En consecuencia, cada módulo incorpora guía de evaluación docente, secuencia minuto a minuto, lista de materiales, instrucciones de ensamble, pruebas sugeridas y estrategias de consolidación posteriores al reto, además de material específico sobre resolución de fallas entendida como habilidad enseñable y no como incidente. La producción editorial se gestionó mediante un flujo por estados con un tablero regenerado automáticamente a partir de los propios archivos, de modo que el estado reportado no puede divergir del contenido.</p>
           </div>
         </div>
@@ -457,11 +457,11 @@
     <p class="label disp">Formación y reconocimientos</p>
     <div class="rows">
       <div class="row">
-        <span class="when mono">2024 — 2026</span>
+        <span class="when mono">2024 – 2026</span>
         <div><h3 class="disp">MSc en Ingeniería Mecánica <span class="badge mono">PGA 4.72 / 5.00</span></h3><p>Universidad de los Andes. Trabajo de grado en manufactura aditiva metálica por deposición de metal aglutinado.</p></div>
       </div>
       <div class="row">
-        <span class="when mono">2019 — 2024</span>
+        <span class="when mono">2019 – 2024</span>
         <div><h3 class="disp">BSc en Ingeniería Mecánica</h3><p>Universidad de los Andes. Programa acreditado ABET.</p></div>
       </div>
       <div class="row">
